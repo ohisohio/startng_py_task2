@@ -44,11 +44,11 @@ while status:
                     password_loop = False
                 else:
                     print("Your Password is less than 7 Characters")
-                    user_password = input(str("Enter password longer than or equal to 7 characters "))
+                    user_password = input(str("Enter password longer than or equal to 7 characters: "))
         else:
             continue
     container.append(details)
-    new_user = input(str("Would you like to enter a new user? Yes or No ")).lower()
+    new_user = input(str("Would you like to enter a new user? Yes or No: ")).lower()
     if new_user == "no":
 
         status = False
