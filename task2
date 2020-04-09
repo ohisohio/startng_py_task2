@@ -1,0 +1,57 @@
+import string
+import random
+
+
+print('Welcome to HNG Tech')
+def get_details():
+    firstName = input('Enter your First Name: ')
+    lastName = input('Enter your Last Name: ')
+    email = input('Enter your Email Address : ')
+
+    details = [firstName,lastName,email]
+
+    return details
+
+def gen_password(details):
+    characters = string.ascii_letters
+    length = 5
+    random_password = ''.join(random.choice(characters) for i in range(length))
+    password = str(details[0][0:2] + details[1][-2:] + random_password)
+    return password
+
+status = True
+container = []
+
+while status:
+    details = get_details()
+    password = gen_password(details)
+    print("Your password is: " + str(password))
+
+    password_like = input(str("Are you satisfied with the generated password? If YES, Enter Y,for No,Enter N and supply your preferred password: "))
+    password_loop = True
+    while password_loop:
+        if password_like == "Y":
+            details.append(password)
+            password_loop = False
+
+else :
+    user_password = input(str("Enter password longer than or equal to 7 characters"))
+    pass_len = True
+    while pass_len:
+        if len(user_password) >= 7:
+            details.append(user_password)
+            container.append(details)
+            pass_len  = False
+            password_loop = False
+        else :
+            print("Your Password is less than 7 Characters")
+            user_password = inputstr(("Enter password longer than or equal to 7 characters"))
+
+    new_user = input (str("Would you like to enter a new user? Yes or No"))
+    if (new_user == "No"):
+        status = False
+        for item in container:
+            print(item)
+        else :
+            status = True
+
